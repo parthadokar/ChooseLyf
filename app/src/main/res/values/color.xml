@@ -22,5 +22,11 @@
     <color name="trans">#00000000</color>
     <color name="warn">#FF1313</color>
     <color name="halfwarn">#483FC8</color>
+    <color name="cyan">#008577</color>
+    <color name="darkGreen">#00574B</color>
+    <color name="pink">#D81B60</color>
+    <color name="colorLightGreen">#34ea07</color>
+    <color name="colorDarkGreen">#0b6c02</color>
+    <color name="colorMidGreen">#2A8C11</color>
 
 </resources>

@@ -17,14 +17,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatbotUi">
         <activity
+            android:name=".symptom"
+            android:exported="true" />
+        <activity
+            android:name=".DiseasePrediction"
+            android:exported="true">
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/network_security_config" /></activity>
+        <activity
             android:name=".ContentMainActivity"
             android:exported="true" />
         <activity
             android:name=".BmiCalMainActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".BmiCalActivity"
-            android:exported="true"/>
+            android:exported="true" />
+        <activity android:name=".ReminderMain" />
+        <activity android:name=".SetReminder" />
         <!--<activity
             android:name=".chatbotActivity"
             android:exported="true"/>-->

@@ -1,45 +1,39 @@
 package com.example.chatbotui;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.List;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.Toast;
+import java.util.List;
 import android.widget.EditText;
-import androidx.appcompat.app.AppCompatActivity;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import java.io.IOException;
 
 public class DiseasePrediction extends AppCompatActivity {
@@ -49,17 +43,7 @@ public class DiseasePrediction extends AppCompatActivity {
         //RequestQueue queue = Volley.newRequestQueue(this);
         String url ="http://192.168.1.104:5000/id/"+inp+"+";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        mTextViewResult.setText("You Might Have "+ response);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                mTextViewResult.setText("That didn't work!");
-            }
-        });
+                response -> mTextViewResult.setText("You Might Have "+ response), error -> mTextViewResult.setText("That didn't work!"));
         mQueue.add(stringRequest);
     }
 
@@ -84,19 +68,16 @@ public class DiseasePrediction extends AppCompatActivity {
             symptom s1 = symptoms.get(position);
             holder.SymptomTV.setText(s1.getSymName());
             holder.Checkbox1.setChecked(s1.getSelected());
-            holder.setItemClickListener(new Myholder.ItemClickListener(){
-                @Override
-                public void onItemClick(View v , int pos){
-                    CheckBox Checkbox1 = (CheckBox) v;
-                    symptom current = symptoms.get(pos);
-                    if(Checkbox1.isChecked()) {
-                        current.setSelected(true);
-                        selectedSymptoms.add(current);
-                    }
-                    else if(!Checkbox1.isChecked()) {
-                        current.setSelected(false);
-                        selectedSymptoms.remove(current);
-                    }
+            holder.setItemClickListener((v, pos) -> {
+                CheckBox Checkbox1 = (CheckBox) v;
+                symptom current = symptoms.get(pos);
+                if(Checkbox1.isChecked()) {
+                    current.setSelected(true);
+                    selectedSymptoms.add(current);
+                }
+                else if(!Checkbox1.isChecked()) {
+                    current.setSelected(false);
+                    selectedSymptoms.remove(current);
                 }
             });
         }
@@ -130,7 +111,7 @@ public class DiseasePrediction extends AppCompatActivity {
     public ArrayList<symptom> readData() throws IOException {
         InputStream is = getResources().openRawResource(R.raw.test);
         BufferedReader reader = new BufferedReader(
-                new InputStreamReader(is, Charset.forName("UTF-8"))
+                new InputStreamReader(is, StandardCharsets.UTF_8)
         );
         String line="";
         while ((line = reader.readLine())!=null) {
@@ -147,33 +128,30 @@ public class DiseasePrediction extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check);
+        setContentView(R.layout.activity_disease_prediction);
         try {
             adapter = new MyAdapter(this,readData());
         } catch (IOException e) {
             e.printStackTrace();
         }
         Button fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sb = new StringBuilder();
-                int i = 0;
-                do {
-                    symptom symptom = adapter.selectedSymptoms.get(i);
-                    sb.append(symptom.getSymName());
-                    if(i !=adapter.selectedSymptoms.size()-1 ) {
-                        sb.append("+");
-                    }
-                    i++;
-                }while (i < adapter.selectedSymptoms.size());
-                if(adapter.selectedSymptoms.size()>0){
-                    //Toast.makeText(MainActivity.this,sb.toString(),Toast.LENGTH_SHORT).show();
+        fab.setOnClickListener(v -> {
+            sb = new StringBuilder();
+            int i = 0;
+            do {
+                symptom symptom = adapter.selectedSymptoms.get(i);
+                sb.append(symptom.getSymName());
+                if(i !=adapter.selectedSymptoms.size()-1 ) {
+                    sb.append("+");
                 }
-                else
-                {
-                    //Toast.makeText(MainActivity.this,"Please check an Item first", Toast.LENGTH_SHORT).show();
-                }
+                i++;
+            }while (i < adapter.selectedSymptoms.size());
+            if(adapter.selectedSymptoms.size()>0){
+                //Toast.makeText(MainActivity.this,sb.toString(),Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                //Toast.makeText(MainActivity.this,"Please check an Item first", Toast.LENGTH_SHORT).show();
             }
         });
         RecyclerView rv = findViewById(R.id.Recyler);
@@ -200,4 +178,3 @@ public class DiseasePrediction extends AppCompatActivity {
         });
     }
 }
-
