@@ -64,16 +64,7 @@ class ReminderMain : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-
-        val longbackpressed = System.currentTimeMillis()
-        if(longbackpressed +2000 > System.currentTimeMillis())
-        {
-            super.onBackPressed()
-            return;
-        }else{
-            Toast.makeText(baseContext,"Press back again to exit",Toast.LENGTH_SHORT).show()
-
-        }
-
+        val intent = Intent(this, ContentMainActivity::class.java)
+        startActivity(intent)
     }
 }

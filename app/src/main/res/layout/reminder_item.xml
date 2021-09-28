@@ -18,6 +18,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textStyle="bold"
             android:gravity="center"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -26,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nov"
+            android:textColor="@color/white"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textStyle="bold"
             android:gravity="center"/>
@@ -81,9 +83,10 @@
                 android:layout_below="@+id/med_description"
                 android:layout_marginLeft="189dp"
                 android:layout_marginTop="4dp"
+                android:textColor="@color/black"
                 android:layout_toRightOf="@+id/time"
                 android:text="Remove"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

@@ -176,4 +176,10 @@ public class BmiCalMainActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        this.startActivity(new Intent(this,ContentMainActivity.class));
+        return;
+    }
 }
