@@ -260,18 +260,19 @@
                 android:weightSum="4">
 
                 <ImageView
+                    android:id="@+id/barcode"
                     android:layout_width="200dp"
                     android:layout_height="0dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="3"
-                    android:src="@drawable/emergency"/>
+                    android:src="@drawable/barcode_scanner"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:text="Emergency"
+                    android:text="Barcode Scan"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:textStyle="bold"

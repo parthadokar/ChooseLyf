@@ -20,9 +20,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ContentMainActivity extends AppCompatActivity {
-    ImageView chatbot;
-    ImageView bmiCal;
-    ImageView reminder;
+    ImageView chatbot,bmiCal,reminder,barcode;
     private long pressedTime;
 
     @Override
@@ -33,6 +31,7 @@ public class ContentMainActivity extends AppCompatActivity {
         chatbot = findViewById(R.id.chatbot);
         bmiCal = findViewById(R.id.bmiCal);
         reminder = findViewById(R.id.reminder);
+        barcode = findViewById(R.id.barcode);
 
         chatbot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +52,13 @@ public class ContentMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(),BmiCalMainActivity.class));
+            }
+        });
+
+        barcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(),BarcodeActivity.class));
             }
         });
     }
