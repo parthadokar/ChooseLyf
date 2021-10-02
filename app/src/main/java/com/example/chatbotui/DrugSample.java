@@ -1,6 +1,8 @@
 package com.example.chatbotui;
 
-class DrugSample {
+import android.app.Activity;
+
+class DrugSample extends Activity {
     private String DrugId;
     private String DrugName;
     private String TargetDisease;
@@ -19,10 +21,6 @@ class DrugSample {
 
     public void setDrugName(String drugName) {
         DrugName = drugName;
-    }
-
-    public String getTargetDisease() {
-        return TargetDisease;
     }
 
     public void setTargetDisease(String targetDisease) {
