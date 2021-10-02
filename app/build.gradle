@@ -2,15 +2,11 @@ plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
-
+    id 'kotlin-parcelize'
 }
-apply plugin: 'kotlin-android'
 
 android {
     compileSdk 30
-
-
     defaultConfig {
         applicationId "com.example.chatbotui"
         minSdk 24
@@ -28,12 +24,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildFeatures{
+
+    buildFeatures {
         viewBinding true
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 
@@ -42,23 +44,55 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
-    implementation 'com.google.firebase:firebase-auth:21.0.1'
-    implementation 'com.google.firebase:firebase-firestore:23.0.3'
-    implementation 'com.google.mlkit:barcode-scanning:17.0.0'
-    implementation 'com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.1'
-    implementation 'com.google.firebase:firebase-ml-vision:24.0.1'
-    testImplementation 'junit:junit:4.13.2'
+    implementation "androidx.core:core-ktx:1.6.0"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //Firebase platform
     implementation platform('com.google.firebase:firebase-bom:28.4.1')
+
+    //Authentication
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+
+    //Cloud Firestore
+    implementation 'com.google.firebase:firebase-firestore:23.0.3'
+
+    //Database
+    implementation 'com.google.firebase:firebase-database:20.0.2'
+
+    //Analytics
     implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.android.gms:play-services-auth:19.2.0'
-    implementation 'br.com.simplepass:loading-button-android:1.14.0'
-    implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'com.google.android.material:material:1.4.0'
+
+    //Material Components
+    //implementation 'com.google.android.material:material:1.4.0'
+
+    //Volley
     implementation 'com.android.volley:volley:1.2.1'
-    implementation "androidx.core:core-ktx:1.6.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.github.d-max:spots-dialog:1.1@aar'
+
+    //Barcode scanning
+    //implementation 'com.google.mlkit:barcode-scanning:17.0.0'
+    //implementation 'com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.1'
+    //implementation 'com.google.firebase:firebase-ml-vision:24.1.0'
+
+    //Google Sign-in
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+
+    //Camera
     implementation 'com.wonderkiln:camerakit:0.13.1'
+
+    //Spots Dialog
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
+
+    //Loading Button
+    implementation 'br.com.simplepass:loading-button-android:1.14.0'
+
+    //Recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    //Circle Imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }
