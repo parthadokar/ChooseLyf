@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
     android:layout_gravity="center"
     android:background="@color/login_bk_color"
     android:focusableInTouchMode="true"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context=".login.LoginActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,7 +97,7 @@
             <TextView
                 style="@style/parent"
                 android:layout_marginTop="@dimen/loginViewsMargin"
-                android:onClick="onLoginClick"
+                android:onClick="onRegisterClick"
                 android:text="New user? Register Now?"
                 android:textAlignment="center"
                 android:textColor="@color/themeColor"
@@ -156,7 +157,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="20dp"
-        android:background="@drawable/ic_side_bg"/>
+        android:background="@drawable/ic_side_bg" />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -164,8 +166,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="11dp"
         android:layout_marginBottom="30dp"
-        android:onClick="onLoginClick"
-        android:src="@drawable/ic_add_img"/>
+        android:onClick="onRegisterClick"
+        android:src="@drawable/ic_add_img" />
 
 
 </RelativeLayout>
