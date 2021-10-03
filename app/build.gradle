@@ -80,6 +80,12 @@ dependencies {
     //Google Sign-in
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
 
+    //Google Maps
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.gms:play-services-base:17.6.0'
+    //implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
     //Camera
     implementation 'com.wonderkiln:camerakit:0.13.1'
 

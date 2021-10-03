@@ -23,13 +23,13 @@
     <string name="add">Add</string>
     <string name="diagnosis">Diagnosis</string>
     <string name="type_your_symptoms">Type Your symptoms…</string>
-    <string name="is_first_run" translatable="false">isFirstRun</string>
+    <string name="is_first_run">isFirstRun</string>
     <string name="update_string">Update</string>
     <string name="choose_you_profile">Choose you profile</string>
-    <string name="reload" translatable="false">reload</string>
-    <string name="default_message_delete_me" translatable="false">I feel pain in my knee.</string>
+    <string name="reload">reload</string>
+    <string name="default_message_delete_me">I feel pain in my knee.</string>
     <string name="app_description">Your disease self diagnosis chat app</string>
-    <string name="openChat" translatable="false">open_chat</string>
+    <string name="openChat">open_chat</string>
     <string name="create_new_conversation">Create new conversation</string>
     <string name="history">History</string>
     <string name="error_messsage_response_doctor">Sorry, I was unable to understand your message, could you repeat it?</string>
@@ -41,13 +41,13 @@
     <string name="finish_diagnose_question">I believe I know your diagnose. \nDo you want to finish?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="is_new_user" translatable="false">is_new_user</string>
-    <string name="female_sign" translatable="false">F</string>
-    <string name="male_sign" translatable="false">M</string>
+    <string name="is_new_user">is_new_user</string>
+    <string name="female_sign">F</string>
+    <string name="male_sign">M</string>
     <string name="fill_all_inputs">Fill all the inputs</string>
     <string name="permission_denied">Permission denied</string>
-    <string name="user_settings" translatable="false">user_settings</string>
-    <string name="user_id" translatable="false">user_id</string>
+    <string name="user_settings">user_settings</string>
+    <string name="user_id">user_id</string>
     <string name="show_more">Show more</string>
     <string name="show_less">Show less</string>
     <string name="most_likely_condition">Your condition is most likely:</string>
@@ -65,11 +65,12 @@
     <string name="unknown">Unknown: \u0020</string>
     <string name="notification_title">Is everything alright?</string>
     <string name="notification_message">You didn\'t diagnose lately</string>
-    <string name="is_covid" translatable="false">is_covid</string>
-    <string name="select_all_statemenet_that_applay_to_you">Please select all statements that apply to you</string>
     <string name="conversation">Conversation:</string>
     <string name="warning_title">Be aware</string>
     <string name="warning_message">The application can not replace a real doctor appointment</string>
     <string name="warning_button">Confirm</string>
     <string name="ok">OK</string>
+
+    <string name="action_settings">Settings</string>
+    <style name="title_activity_maps">Map</style>
 </resources>

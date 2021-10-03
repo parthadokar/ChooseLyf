@@ -44,14 +44,6 @@ public class RequestUtil {
         }
     }
 
-    public static void addAgeToJsonObjectForCovid(JSONObject jsonObject) throws JSONException {
-        if (!GlobalVariables.getInstance().getCurrentUser().isPresent()) {
-            throw new RuntimeException();
-        }
-        User user = GlobalVariables.getInstance().getCurrentUser().get();
-        jsonObject.put("age", user.getAge());
-    }
-
     public static void addAgeToJsonObject(JSONObject jsonObject) throws JSONException {
         if (!GlobalVariables.getInstance().getCurrentUser().isPresent()) {
             throw new RuntimeException();

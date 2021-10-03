@@ -23,10 +23,6 @@ class DrugSample extends Activity {
         DrugName = drugName;
     }
 
-    public void setTargetDisease(String targetDisease) {
-        TargetDisease = targetDisease;
-    }
-
     @Override
     public String toString() {
         return "DrugId='" + DrugId + '\'' +

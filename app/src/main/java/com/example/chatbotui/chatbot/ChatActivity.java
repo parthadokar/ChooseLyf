@@ -193,29 +193,6 @@ public class ChatActivity extends AppCompatActivity implements RequestUtil.ChatR
         requestPermissions(permissions, 300);
     }
 
-    /*private void makeCovidDiagnoseMessage(String condition, String recommendations) {
-        LinearLayout linearLayout = (LinearLayout) View.inflate(this, R.layout.diagnose_message, null);
-
-        TextView mostLikelyConditionsTV = linearLayout.findViewById(R.id.most_likely_conditions);
-        mostLikelyConditionsTV.setText(condition);
-
-        TextView valueTV = linearLayout.findViewById(R.id.standard_info);
-        valueTV.setText(recommendations);
-
-        float scale = getResources().getDisplayMetrics().density;
-        int dpAsPixels = (int) (15 * scale + 0.5f);
-
-        valueTV.setPadding(valueTV.getPaddingLeft(), valueTV.getPaddingTop(), valueTV.getPaddingRight(), dpAsPixels);
-
-        Button advancedInfoButton = linearLayout.findViewById(R.id.advanced_info_button);
-        Button exportToPDFFile = linearLayout.findViewById(R.id.export_to_pdf_button);
-        advancedInfoButton.setVisibility(View.GONE);
-        exportToPDFFile.setVisibility(View.GONE);
-
-        binding.chatLayout.addView(linearLayout);
-        this.lastDoctorMessage = condition;
-    }*/
-
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -381,19 +358,6 @@ public class ChatActivity extends AppCompatActivity implements RequestUtil.ChatR
         return true;
     }
 
-    /*@Override
-    public void finishCovidDiagnose() {
-        JSONArray conditions = RequestUtil.getInstance().getConditionsArray();
-        GlobalVariables.getInstance().getCurrentChat().get().setConditionsArray(conditions.toString());
-        hideMessageBox();
-        try {
-            makeCovidDiagnoseMessage(conditions.getJSONObject(0).getString("description"),
-                    conditions.getJSONObject(0).getString("label"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-    }*/
 
     @Override
     public void onRequestFailure() {

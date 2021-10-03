@@ -36,7 +36,7 @@ public class splash extends AppCompatActivity implements AddProfileFragment.AddP
                     } else {
                         runLoginActivity();
                     }
-                }, 4000));
+                }, 1500));
             }
         }
     };

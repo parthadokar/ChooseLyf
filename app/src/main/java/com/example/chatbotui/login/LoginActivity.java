@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.chatbotui.MainActivity;
+import com.example.chatbotui.ProfileActivity;
 import com.example.chatbotui.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -43,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseFirestore fStore;
     String userID;
     TextView register;
+    boolean isNewUser = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,10 +136,11 @@ public class LoginActivity extends AppCompatActivity {
                     user.put("mobile", fAuth.getCurrentUser().getPhoneNumber());
                     documentReference.set(user).addOnSuccessListener(unused -> Log.d(TAG, "onSuccess: user profile is created for" + userID));
                     startActivity(new Intent(this, MainActivity.class));
+                    Toast.makeText(this, "Your Google Account is connected", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(LoginActivity.this, ProfileActivity.class);
+                    i.putExtra("key", isNewUser);
+                    startActivity(i);
                 }).addOnFailureListener(e -> { });
-
-                //Toast.makeText(this, "Your Google Account is connected", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(this, ContentMainActivity.class));
             } catch (ApiException e) {
                 e.printStackTrace();
             }
@@ -149,4 +152,8 @@ public class LoginActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
     }
 
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+    }
 }

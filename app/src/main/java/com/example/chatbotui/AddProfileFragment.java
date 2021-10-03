@@ -26,11 +26,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AddProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AddProfileFragment extends Fragment {
 
     private static final long DEFAULT_DATE = System.currentTimeMillis() - 410280000000L;
@@ -44,7 +39,6 @@ public class AddProfileFragment extends Fragment {
         setCalendarDate(year, monthOfYear, dayOfMonth);
         updateLabel();
     };
-    private ChatSQLiteDBHelper db;
 
 
     private boolean isNewUser = false;
@@ -97,8 +91,6 @@ public class AddProfileFragment extends Fragment {
         this.binding.female.setColorFilter(getBlackAndWhiteFilter());
         this.binding.male.setColorFilter(getBlackAndWhiteFilter());
 
-        db = new ChatSQLiteDBHelper(getActivity());
-
         getArgumentsFromBundle();
 
         if (!this.isNewUser) {
@@ -114,12 +106,6 @@ public class AddProfileFragment extends Fragment {
         return binding.getRoot();
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment AddProfile.
-     */
     public static AddProfileFragment newInstance() {
         AddProfileFragment fragment = new AddProfileFragment();
         Bundle args = new Bundle();
@@ -217,7 +203,7 @@ public class AddProfileFragment extends Fragment {
                 binding.addUserImage.setImageBitmap(globalVariables.getCurrentUser().get().getPicture());
             }
 
-            binding.beforeAddUserImage.setBackgroundColor(Color.TRANSPARENT);
+            //binding.beforeAddUserImage.setBackgroundColor(Color.TRANSPARENT);
             binding.fgAddButton.setText(getString(R.string.update_string));
         }
     }

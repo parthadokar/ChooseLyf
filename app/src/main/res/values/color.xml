@@ -5,6 +5,7 @@
     <color name="colorAccent">#9D46FF</color>
     <color name="themeColor">#11CFC5</color>
 
+    <color name="dark">#313C44</color>
     <color name="darker">#151B20</color>
     <color name="lightGray">#F9F9F9</color>
     <color name="mediumGray">#D1D1D1</color>
@@ -51,4 +52,6 @@
     <color name="backgroundColor">@color/lightGray</color>
     <color name="strokeColor">@color/lightMediumGray</color>
     <color name="buttonColor">@color/colorPrimary</color>
+    <color name="actionBarBackgroundColor">@color/colorPrimary</color>
+    <color name="contextualActionBarColor">@color/dark</color>
 </resources>

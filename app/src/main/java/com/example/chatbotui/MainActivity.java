@@ -1,7 +1,11 @@
 package com.example.chatbotui;
 
+import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -9,10 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.SavedStateHandle;
+import androidx.core.app.ActivityCompat;
 
 import com.example.chatbotui.bmi.BmiCalMainActivity;
 import com.example.chatbotui.chatbot.ChatActivity;
@@ -20,6 +23,7 @@ import com.example.chatbotui.chatbot.RequestUtil;
 import com.example.chatbotui.chatbot.helpers.GlobalVariables;
 import com.example.chatbotui.chatbot.helpers.SharedPreferencesHelper;
 import com.example.chatbotui.databinding.ActivityMainBinding;
+import com.example.chatbotui.hospital.GMap.ListHealthCenters;
 import com.example.chatbotui.login.LoginActivity;
 import com.example.chatbotui.reminder.ReminderMain;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements AddProfileFragmen
     ActivityMainBinding binding;
     private long pressedTime;
     boolean isNewUser = false;
+    public static ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements AddProfileFragmen
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        requestLocationPermission();
+
         setPicture();
 
         binding.content.chatbot.setOnClickListener(v -> {
@@ -56,6 +64,10 @@ public class MainActivity extends AppCompatActivity implements AddProfileFragmen
         binding.content.bmiCal.setOnClickListener(v -> startActivity(new Intent(getApplication(), BmiCalMainActivity.class)));
 
         //binding.content.barcode.setOnClickListener(v -> startActivity(new Intent(getApplication(), BarcodeActivity.class)));
+
+        binding.content.hospital.setOnClickListener(v -> {
+            hospitalLocations();
+        });
     }
 
     @Override
@@ -94,29 +106,19 @@ public class MainActivity extends AppCompatActivity implements AddProfileFragmen
     @Override
     public void onBackPressed() {
         if (pressedTime + 2000 > System.currentTimeMillis()) {
-            super.onBackPressed();
-            finish();
+            finishAffinity();
         } else {
             Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
         }
         pressedTime = System.currentTimeMillis();
     }
 
-    /*private void runAddProfileFragment(boolean isNewUser) {
-        Fragment fragment = new AddProfileFragment();
-        Bundle bundle = new Bundle();
-        bundle.putBoolean(getString(R.string.is_new_user), isNewUser);
-        fragment.setArguments(bundle);
-        FragmentTransaction transaction = getSupportFragmentManager()
-                .beginTransaction();
-        transaction.replace(R.id.layoutToBeReplacedWithFragment, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }*/
-
     public void goToChatActivity() {
-        Intent intent = new Intent(this, ChatActivity.class);
-        startActivity(intent);
+        if (isNetworkAvailable()) {
+            Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+            startActivity(intent);
+        } else
+            Toast.makeText(this, "No internet connection", Toast.LENGTH_LONG).show();
     }
 
     public void goToMainActivity() {
@@ -128,6 +130,49 @@ public class MainActivity extends AppCompatActivity implements AddProfileFragmen
     public void setPicture() {
         if (!GlobalVariables.getInstance().getCurrentUser().isPresent()) {
             SharedPreferencesHelper.loadUser(this);
+        }
+    }
+
+    private void hospitalLocations() {
+        if (isNetworkAvailable()) {
+            loading("Scanning Location...");
+            Intent intent = new Intent(MainActivity.this, ListHealthCenters.class);
+            startActivity(intent);
+        } else
+            Toast.makeText(this, "No internet connection", Toast.LENGTH_LONG).show();
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    void loading(String message) {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please wait");
+        progressDialog.setMessage(message);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+    }
+
+    private void requestLocationPermission() {
+        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+            } else {
+                Toast.makeText(this,
+                        "Without the location permission we will be unable to show the hospital list",
+                        Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
