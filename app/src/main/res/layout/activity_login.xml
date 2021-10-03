@@ -76,7 +76,9 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:id="@+id/forgotPassword"
                 style="@style/viewParent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginTop="10dp"
                 android:text="Forgot Password"

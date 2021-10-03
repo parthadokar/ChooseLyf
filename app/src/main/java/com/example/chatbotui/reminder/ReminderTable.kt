@@ -1,7 +1,8 @@
-package com.example.chatbotui.reminder
+package com.example.chatbotui
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
+import com.example.chatbotui.reminder.Reminder
 
 class ReminderTable {
     companion object {

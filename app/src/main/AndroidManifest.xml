@@ -31,13 +31,13 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCe00_mmR4a5YImBwJKg_VJSrhoeP2azPI" />
 
-        <meta-data
+        <!--<meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
             android:value="barcode" />
 
         <activity
             android:name=".DrugSample"
-            android:exported="true" />
+            android:exported="true" />-->
 
         <activity
             android:name=".hospital.GMap.ListHealthCenters"
@@ -54,14 +54,18 @@
         <activity
             android:name=".chatbot.ChatActivity"
             android:exported="true" />
-        <!--
-<activity
+        <!--<activity
             android:name=".BarcodeActivity"
-            android:exported="true" />
-        -->
+            android:exported="true" />-->
         <activity
             android:name=".splash"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />
@@ -88,11 +92,11 @@
             android:name=".login.LoginActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
     </application>
 

@@ -1,5 +1,6 @@
 package com.example.chatbotui.reminder
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.DatePickerDialog
 import android.app.PendingIntent
@@ -30,6 +31,7 @@ class SetReminder : AppCompatActivity() {
     private var _binding: ActivitySetReminderBinding? = null
     private val binding get() = _binding!!
 
+    @SuppressLint("SimpleDateFormat", "WeekBasedYear")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivitySetReminderBinding.inflate(layoutInflater)
@@ -92,10 +94,10 @@ class SetReminder : AppCompatActivity() {
             Log.i("reminder", SimpleDateFormat("dd/MM/yyyy").format(startday!!.time))
             val datepicker = DatePickerDialog(
                 this,
-                { view, year, month, dayOfMonth ->
-                    startday!!.set(year, month, dayOfMonth)
+                { view, year, month, day ->
+                    startday!!.set(year, month, day)
                     Log.i("reminder", SimpleDateFormat("dd/MM/yyyy").format(startday!!.time))
-                    binding.startDate.text = ("$dayOfMonth/${month + 1}/$year")
+                    binding.startDate.text = ("$day/${month + 1}/$year")
                 }, year, month, day
             )
             datepicker.show()
@@ -110,10 +112,10 @@ class SetReminder : AppCompatActivity() {
             Log.i("reminder", SimpleDateFormat("dd/MM/yyyy").format(lastday!!.time))
             val datepicker = DatePickerDialog(
                 this,
-                { view, year, month, dayOfMonth ->
-                    lastday!!.set(year, month, dayOfMonth)
-                    Log.i("reminder", SimpleDateFormat("dd/MM/YYYY").format(lastday!!.time))
-                    binding.stopDate.text = ("$dayOfMonth/${month + 1}/$year")
+                { view, year, month, day ->
+                    lastday!!.set(year, month, day)
+                    Log.i("reminder", SimpleDateFormat("dd/MM/yyyy").format(lastday!!.time))
+                    binding.stopDate.text = ("$day/${month + 1}/$year")
                 }, year, month, day
             )
             datepicker.show()
@@ -168,14 +170,14 @@ class SetReminder : AppCompatActivity() {
                             time.timeInMillis,
                             pendingIntent
                         )
-                        Log.i("reminder", "date" + SimpleDateFormat("dd/MM/yyyy").format(date.time))
+                        Log.i("reminder", "date" + SimpleDateFormat("dd/MM/yyyy").format(dates.time))
                         Log.i("reminder", "time" + SimpleDateFormat("hh:mm a").format(time.time))
                         val remind = Reminder(
                             id = null,
                             medicineName = binding.textMedName.text.toString(),
                             description = binding.descriptionInput.text.toString(),
-                            day = SimpleDateFormat("dd").format(date.time),
-                            month = SimpleDateFormat("MM").format(date.time),
+                            day = SimpleDateFormat("dd").format(dates.time),
+                            month = SimpleDateFormat("MM").format(dates.time),
                             time = SimpleDateFormat("hh:mm a").format(time.time)
                         )
                         remList.add(remind)

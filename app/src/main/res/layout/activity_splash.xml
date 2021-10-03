@@ -8,23 +8,22 @@
     tools:context=".splash">
 
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/intro"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/logo">
-    </ImageView>
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="150dp"
+        android:src="@drawable/intro"></ImageView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="MedieApp"
+        android:text="Smart Health Care\n  Android System"
         android:layout_marginTop="30dp"
-        android:textStyle="bold"
+        android:textStyle="italic"
         android:fontFamily="@font/raleway"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:layout_below="@id/logo"
         android:textColor="@color/white"
         android:lineSpacingExtra="2dp">

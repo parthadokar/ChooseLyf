@@ -1,8 +1,7 @@
+/*
 package com.example.chatbotui;
 
-import android.app.Activity;
-
-class DrugSample extends Activity {
+class DrugSample {
     private String DrugId;
     private String DrugName;
     private String TargetDisease;
@@ -23,6 +22,14 @@ class DrugSample extends Activity {
         DrugName = drugName;
     }
 
+    public String getTargetDisease() {
+        return TargetDisease;
+    }
+
+    public void setTargetDisease(String targetDisease) {
+        TargetDisease = targetDisease;
+    }
+
     @Override
     public String toString() {
         return "DrugId='" + DrugId + '\'' +
@@ -31,3 +38,4 @@ class DrugSample extends Activity {
                 '}';
     }
 }
+*/

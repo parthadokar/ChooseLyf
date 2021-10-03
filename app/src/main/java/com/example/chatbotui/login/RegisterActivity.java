@@ -119,6 +119,8 @@ public class RegisterActivity extends AppCompatActivity {
 
             fAuth.createUserWithEmailAndPassword(fEmail, fPassword).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
+                    // Sent verification link
+
                     Toast.makeText(RegisterActivity.this, "User Created..", Toast.LENGTH_SHORT).show();
                     userID = fAuth.getCurrentUser().getUid();
                     DocumentReference documentReference = fStore.collection("users").document(userID);

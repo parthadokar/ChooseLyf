@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatbotui.MainActivity
+import com.example.chatbotui.ReminderTable
 import com.example.chatbotui.databinding.ReminderActivityMainBinding
 import java.util.*
 
