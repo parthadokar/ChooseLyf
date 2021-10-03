@@ -172,6 +172,8 @@ class SetReminder : AppCompatActivity() {
                         )
                         Log.i("reminder", "date" + SimpleDateFormat("dd/MM/yyyy").format(dates.time))
                         Log.i("reminder", "time" + SimpleDateFormat("hh:mm a").format(time.time))
+                        Log.i("day","Day"+SimpleDateFormat("dd").format(dates.time))
+                        Log.i("month","Month"+SimpleDateFormat("MM").format(dates.time))
                         val remind = Reminder(
                             id = null,
                             medicineName = binding.textMedName.text.toString(),
