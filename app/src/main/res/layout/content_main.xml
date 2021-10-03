@@ -217,7 +217,7 @@
                     android:text="Medicine Reminder"
                     android:textAlignment="center"
                     android:textColor="@color/titleColor"
-                    android:textSize="16"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
 

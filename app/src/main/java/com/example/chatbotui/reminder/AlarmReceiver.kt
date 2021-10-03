@@ -29,7 +29,7 @@ class AlarmReceiver : BroadcastReceiver(){
         val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val v = longArrayOf(500,1000)
         val notification = NotificationCompat.Builder(context,"first")
-            .setContentTitle("Time to take"+medname)
+            .setContentTitle("Time to take "+medname)
             .setContentText(description)
             .setAutoCancel(false)
             .setVibrate(v)

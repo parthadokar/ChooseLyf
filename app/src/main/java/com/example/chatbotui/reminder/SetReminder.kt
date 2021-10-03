@@ -93,11 +93,10 @@ class SetReminder : AppCompatActivity() {
             startday = cal
             Log.i("reminder", SimpleDateFormat("dd/MM/yyyy").format(startday!!.time))
             val datepicker = DatePickerDialog(
-                this,
-                { view, year, month, day ->
-                    startday!!.set(year, month, day)
+                this, DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                    startday!!.set(year, month, dayOfMonth)
                     Log.i("reminder", SimpleDateFormat("dd/MM/yyyy").format(startday!!.time))
-                    binding.startDate.text = ("$day/${month + 1}/$year")
+                    binding.startDate.text = ("$dayOfMonth/${month + 1}/$year")
                 }, year, month, day
             )
             datepicker.show()
@@ -111,13 +110,11 @@ class SetReminder : AppCompatActivity() {
             lastday = cal
             Log.i("reminder", SimpleDateFormat("dd/MM/yyyy").format(lastday!!.time))
             val datepicker = DatePickerDialog(
-                this,
-                { view, year, month, day ->
-                    lastday!!.set(year, month, day)
+                this,DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                    lastday!!.set(year, month, dayOfMonth)
                     Log.i("reminder", SimpleDateFormat("dd/MM/yyyy").format(lastday!!.time))
-                    binding.stopDate.text = ("$day/${month + 1}/$year")
-                }, year, month, day
-            )
+                    binding.stopDate.text = ("$dayOfMonth/${month + 1}/$year")
+                }, year, month, day)
             datepicker.show()
         }
         binding.add.setOnClickListener {
@@ -141,7 +138,8 @@ class SetReminder : AppCompatActivity() {
             }
             if (startday == null || lastday == null) {
                 Toast.makeText(this, "Select Dates", Toast.LENGTH_LONG).show()
-            } else {
+            }
+            else {
                 val remList = arrayListOf<Reminder>()
                 val datelist = arrayListOf<Calendar>()
                 datelist.add(startday!!)
@@ -151,7 +149,6 @@ class SetReminder : AppCompatActivity() {
                     Log.i("reminder", "date" + SimpleDateFormat("dd/MM/yyyy").format(date.time))
                     Log.i("reminder", "Datelist size $datelist.size.toString()")
                     datelist.add(date)
-
                 }
                 for (dates in datelist) {
                     for (time in timelist) {
