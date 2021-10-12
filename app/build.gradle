@@ -103,4 +103,10 @@ dependencies {
     //Circle Imageview
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //reminder
+    implementation 'com.github.alxrm:animated-clock-icon:1.0.2'
+    implementation 'androidx.navigation:navigation-fragment:2.1.0'
+    implementation 'androidx.navigation:navigation-ui:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+
 }

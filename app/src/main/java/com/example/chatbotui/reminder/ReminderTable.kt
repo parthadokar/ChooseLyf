@@ -1,3 +1,4 @@
+/*
 package com.example.chatbotui
 
 import android.content.ContentValues
@@ -70,4 +71,4 @@ class ReminderTable {
             db.delete(TABLE_NAME,"id = $id",null)
         }
     }
-}
+}*/

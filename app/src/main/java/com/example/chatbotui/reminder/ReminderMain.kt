@@ -1,5 +1,5 @@
 package com.example.chatbotui.reminder
-
+/*
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -65,3 +65,4 @@ class ReminderMain : AppCompatActivity() {
         startActivity(intent)
     }
 }
+*/

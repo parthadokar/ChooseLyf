@@ -1,3 +1,4 @@
+/*
 package com.example.chatbotui.reminder
 
 import java.io.Serializable
@@ -9,4 +10,4 @@ data class Reminder(
     var day:String,
     var month:String,
     var time:String
-) : Serializable
+) : Serializable*/

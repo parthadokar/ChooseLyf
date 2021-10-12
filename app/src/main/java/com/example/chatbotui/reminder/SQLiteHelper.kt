@@ -1,3 +1,4 @@
+/*
 package com.example.chatbotui.reminder
 
 import android.content.Context
@@ -14,4 +15,4 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, "reminderlist.d
 
     }
 
-}
+}*/

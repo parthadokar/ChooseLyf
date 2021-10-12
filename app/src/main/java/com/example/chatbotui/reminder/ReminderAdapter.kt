@@ -1,5 +1,5 @@
 package com.example.chatbotui.reminder
-
+/*
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -49,3 +49,4 @@ class ReminderAdapter : RecyclerView.Adapter<ReminderAdapter.ReminderViewHolder>
     }
 
 }
+*/

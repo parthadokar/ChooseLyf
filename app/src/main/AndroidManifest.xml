@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.chatbotui">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,11 +14,13 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="MedieChat"
+        android:label="HealthCare"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -49,7 +52,7 @@
             android:label="Map" />
 
         <receiver android:name=".chatbot.helpers.Receiver" />
-        <receiver android:name=".reminder.AlarmReceiver" />
+        <!--<receiver android:name=".reminder.AlarmReceiver" />-->
 
         <activity
             android:name=".chatbot.ChatActivity"
@@ -75,12 +78,12 @@
         <activity
             android:name=".bmi.BmiCalActivity"
             android:exported="true" />
-        <activity
+        <!--<activity
             android:name=".reminder.ReminderMain"
             android:exported="true" />
         <activity
             android:name=".reminder.SetReminder"
-            android:exported="true" />
+            android:exported="true" />-->
         <activity
             android:name=".ProfileActivity"
             android:exported="true" />
@@ -98,6 +101,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
+        <activity android:name=".Reminder_.HomeActivity"
+            android:exported="true"/>
+        <!--<activity
+            android:name=".Reminder_.AlarmActivity"
+            android:excludeFromRecents="true"
+            android:showOnLockScreen="true"
+            android:turnScreenOn="true"
+            android:showWhenLocked="true"
+            tools:targetApi="o_mr1" />-->
+        <receiver android:name=".Reminder_.AlarmReceiver"/>
+
     </application>
 
 </manifest>

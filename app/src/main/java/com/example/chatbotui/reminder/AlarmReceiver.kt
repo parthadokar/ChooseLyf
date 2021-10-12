@@ -1,3 +1,4 @@
+/*
 package com.example.chatbotui.reminder
 
 import android.app.NotificationChannel
@@ -42,3 +43,4 @@ class AlarmReceiver : BroadcastReceiver(){
     }
 
 }
+*/

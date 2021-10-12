@@ -1,3 +1,4 @@
+/*
 package com.example.chatbotui.reminder
 
 import android.annotation.SuppressLint
@@ -198,3 +199,4 @@ class SetReminder : AppCompatActivity() {
         }
     }
 }
+*/

@@ -25,11 +25,12 @@ import com.example.chatbotui.chatbot.helpers.SharedPreferencesHelper;
 import com.example.chatbotui.databinding.ActivityMainBinding;
 import com.example.chatbotui.hospital.GMap.ListHealthCenters;
 import com.example.chatbotui.login.LoginActivity;
-import com.example.chatbotui.reminder.ReminderMain;
+import com.example.chatbotui.Reminder_.HomeActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
+
 
 public class MainActivity extends AppCompatActivity implements AddProfileFragment.AddProfileFragmentListener {
 
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements AddProfileFragmen
         });
 
         binding.content.reminder.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, ReminderMain.class);
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
         });
 
