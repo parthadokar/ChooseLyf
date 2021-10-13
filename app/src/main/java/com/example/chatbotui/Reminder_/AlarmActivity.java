@@ -1,5 +1,5 @@
 package com.example.chatbotui.Reminder_;
-/*
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -112,7 +112,7 @@ public class AlarmActivity extends AppCompatActivity {
 
         PendingIntent operation = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-         Getting a reference to the System Service ALARM_SERVICE
+         //Getting a reference to the System Service ALARM_SERVICE
         AlarmManager alarmManagerNew = (AlarmManager) getSystemService(ALARM_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -122,4 +122,3 @@ public class AlarmActivity extends AppCompatActivity {
 
     }
 }
-*/

@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context= ".Reminder_.AlarmActivity">
 
 
     <rm.com.clocks.ClockImageView

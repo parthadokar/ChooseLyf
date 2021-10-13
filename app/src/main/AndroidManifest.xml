@@ -52,7 +52,6 @@
             android:label="Map" />
 
         <receiver android:name=".chatbot.helpers.Receiver" />
-        <!--<receiver android:name=".reminder.AlarmReceiver" />-->
 
         <activity
             android:name=".chatbot.ChatActivity"
@@ -78,12 +77,6 @@
         <activity
             android:name=".bmi.BmiCalActivity"
             android:exported="true" />
-        <!--<activity
-            android:name=".reminder.ReminderMain"
-            android:exported="true" />
-        <activity
-            android:name=".reminder.SetReminder"
-            android:exported="true" />-->
         <activity
             android:name=".ProfileActivity"
             android:exported="true" />
@@ -103,13 +96,13 @@
         </activity>
         <activity android:name=".Reminder_.HomeActivity"
             android:exported="true"/>
-        <!--<activity
+        <activity
             android:name=".Reminder_.AlarmActivity"
             android:excludeFromRecents="true"
             android:showOnLockScreen="true"
             android:turnScreenOn="true"
             android:showWhenLocked="true"
-            tools:targetApi="o_mr1" />-->
+            tools:targetApi="o_mr1" />
         <receiver android:name=".Reminder_.AlarmReceiver"/>
 
     </application>

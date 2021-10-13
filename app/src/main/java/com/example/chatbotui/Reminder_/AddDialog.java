@@ -22,8 +22,9 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-//import com.example.chatbotui.Reminder_.AlarmActivity;
+import com.example.chatbotui.Reminder_.AlarmActivity;
 import com.example.chatbotui.Reminder_.HomeActivity;
+import com.example.chatbotui.R;
 import com.example.chatbotui.Reminder_.DatabaseHelper;
 import com.example.chatbotui.Reminder_.TimeAdapter;
 import com.example.chatbotui.Reminder_.TimeSelectorItem;
@@ -41,8 +42,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.example.chatbotui.R;
-
 import static android.content.Context.ALARM_SERVICE;
 
 public class AddDialog extends DialogFragment implements Toolbar.OnMenuItemClickListener {
@@ -54,7 +53,7 @@ public class AddDialog extends DialogFragment implements Toolbar.OnMenuItemClick
     private ChipGroup chipGroupScheduleTimes, chipGroupAlertType;
     private Chip chipSelected;
     private int[] chipArrayIds = {R.id.chip1, R.id.chip2, R.id.chip3, R.id.chip4, R.id.chip5};
-    private int[] chipAlertArrayIds = {R.id.chip_notification};
+    private int[] chipAlertArrayIds = {R.id.chip_notification, R.id.chip_alarm};
 
     private List<TimeSelectorItem> timeSelectorItems;
     private int mPerDay = 1;
@@ -275,11 +274,11 @@ public class AddDialog extends DialogFragment implements Toolbar.OnMenuItemClick
             case "Notification":
                 setNotification(calendar, medicineName);
                 break;
-            //case "Alarm":
-                //setAlarm(calendar, medicineName);
-                //break;
+            case "Alarm":
+                setAlarm(calendar, medicineName);
+                break;
             default:
-                //setAlarm(calendar, medicineName);
+                setAlarm(calendar, medicineName);
                 setNotification(calendar, medicineName);
                 break;
 
@@ -290,13 +289,13 @@ public class AddDialog extends DialogFragment implements Toolbar.OnMenuItemClick
         return true;
     }
 
-    /*public void setAlarm(Calendar mAlarmTime, String medicineName) {
+    public void setAlarm(Calendar mAlarmTime, String medicineName) {
         Intent intent = new Intent(getActivity(), AlarmActivity.class);
         intent.putExtra("medicineName", medicineName);
 
         PendingIntent operation = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-         Getting a reference to the System Service ALARM_SERVICE
+        /** Getting a reference to the System Service ALARM_SERVICE */
         AlarmManager alarmManagerNew = (AlarmManager) getActivity().getSystemService(ALARM_SERVICE);
 
 //        alarmManagerNew.setRepeating(AlarmManager.RTC_WAKEUP, mAlarmTime.getTimeInMillis(),
@@ -306,7 +305,7 @@ public class AddDialog extends DialogFragment implements Toolbar.OnMenuItemClick
         } else
             alarmManagerNew.setExact(AlarmManager.RTC_WAKEUP, mAlarmTime.getTimeInMillis(), operation);
 
-    }*/
+    }
 
     private void setNotification(Calendar mNotificationTime, String medicineName) {
 
@@ -333,3 +332,4 @@ public class AddDialog extends DialogFragment implements Toolbar.OnMenuItemClick
         dialog.show();
     }
 }
+
