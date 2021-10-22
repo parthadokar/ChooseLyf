@@ -103,4 +103,6 @@
         <item>@color/sun_yellow</item>
         <item>@color/bright_orange</item>
     </integer-array>
+
+    <color name="grey">#e7e7e6</color>
 </resources>

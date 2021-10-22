@@ -37,8 +37,10 @@
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/activity_main.xml" value="0.12047101449275362" />
+        <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/activity_main_tips.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/activity_maps.xml" value="0.25" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/activity_profile.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/activity_profile_tips.xml" value="0.14492753623188406" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/activity_set_reminder.xml" value="0.18" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/activity_splash.xml" value="0.1" />
@@ -46,7 +48,7 @@
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/answer_button.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/bmiactivity.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/bmicalmainactivity.xml" value="0.22" />
-        <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/content_main.xml" value="0.22" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/diagnose_message.xml" value="0.22" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/doctor_message.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/fragment_add_profile.xml" value="0.25" />

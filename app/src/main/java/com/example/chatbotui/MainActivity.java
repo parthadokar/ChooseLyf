@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements AddProfileFragmen
 
         binding.content.bmiCal.setOnClickListener(v -> startActivity(new Intent(getApplication(), BmiCalMainActivity.class)));
 
-        //binding.content.barcode.setOnClickListener(v -> startActivity(new Intent(getApplication(), BarcodeActivity.class)));
+        binding.content.barcode.setOnClickListener(v -> startActivity(new Intent(getApplication(), com.example.chatbotui.HealthTips.MainActivity.class)));
 
         binding.content.hospital.setOnClickListener(v -> {
             hospitalLocations();

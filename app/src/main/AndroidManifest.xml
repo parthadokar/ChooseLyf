@@ -94,6 +94,10 @@
             android:showWhenLocked="true"
             tools:targetApi="o_mr1" />
         <receiver android:name=".Reminder_.AlarmReceiver"/>
+        <activity android:name=".HealthTips.MainActivity"
+            android:exported="true"/>
+        <activity android:name=".HealthTips.profileActivity"
+            android:exported="true"/>
 
     </application>
 
