@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
         forgotpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText resetMail = new EditText((v.getContext()));
+                final EditText resetMail = new EditText((v.getContext()));
                 final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
                 passwordResetDialog.setTitle("Reset Password ?");
                 passwordResetDialog.setMessage("Enter Your Email To Receive Reset Link. ");
@@ -117,6 +117,14 @@ public class LoginActivity extends AppCompatActivity {
                         });
                     }
                 });
+                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                passwordResetDialog.create().show();
             }
         });
 
@@ -191,4 +199,5 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed() {
         finishAffinity();
     }
+
 }

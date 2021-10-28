@@ -48,7 +48,7 @@
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/answer_button.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/bmiactivity.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/bmicalmainactivity.xml" value="0.22" />
-        <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/content_main.xml" value="0.22" />
+        <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/content_main.xml" value="0.18" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/diagnose_message.xml" value="0.22" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/doctor_message.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/fragment_add_profile.xml" value="0.25" />
@@ -56,7 +56,7 @@
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/fragment_home.xml" value="0.11503623188405797" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/health_centers_result_view.xml" value="0.22" />
-        <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/history_item.xml" value="0.18342391304347827" />
+        <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/history_item.xml" value="0.22" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/item_chat.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/item_user.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/medicine_list.xml" value="0.1" />
@@ -69,8 +69,9 @@
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/user_message.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/layout/warning_dialog.xml" value="0.18" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/menu/add_dialog_menu.xml" value="0.18" />
-        <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/menu/menu_app_bar.xml" value="0.22" />
+        <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/menu/menubar.xml" value="0.2" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/Final-Year-Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2203125" />
         <entry key="..\:/Users/Saloni/AndroidStudioProjects/chatbotUi/app/src/main/res/drawable-v24/ic_calender.xml" value="0.10740740740740741" />
