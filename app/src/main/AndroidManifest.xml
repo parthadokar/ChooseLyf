@@ -98,7 +98,13 @@
             android:exported="true"/>
         <activity android:name=".HealthTips.profileActivity"
             android:exported="true"/>
-
+        <activity android:name=".waterIntake.HydrationSettingActivity"/>
+        <activity android:name=".waterIntake.HydrationTrackerActivity"/>
+        <activity android:name=".waterIntake.MainActivity"/>
+        <service android:name=".waterIntake.StartNotificationService" android:exported="false"/>
+        <service android:name=".waterIntake.NotificationDrinkWaterService" android:exported="false"/>
+        <service android:name=".waterIntake.ResetAppService" android:exported="false"/>
+        <service android:name=".waterIntake.StopNotificationService" android:exported="false"/>
     </application>
 
 </manifest>

@@ -288,4 +288,69 @@
         •	Tingling in your arms\n
         •	Weakness in your muscles\n
     </string>
+
+    <!--Water Suggestion-->
+    <string name="first_time">Tell me about your hydration plan!</string>
+
+    <string name="state_key">state</string>
+    <string name="state_default">initial</string>
+    <string name="state_ready">ready</string>
+    <string name="state_set">set</string>
+
+    <string name="appReset">reset</string>
+    <string name="setNextNotification">next_notification</string>
+
+    <string name="bigText_glass">Drink!</string>
+    <string name="drink_water">NotificationDrinkWaterService</string>
+    <string name="bigText_updatePiechart">updatePiechart</string>
+
+    <string name="timepicker_state">timepicker_state</string>
+    <string name="timepicker_start">start</string>
+    <string name="timepicker_end">end</string>
+
+    <string name="notification_state">notification_state</string>
+    <string name="normal_notification">Notification with sound</string>
+    <string name="silent_notification">Silent notification</string>
+    <string name="no_notification">No notification</string>
+
+
+    <string name="start_hour">start_hour</string>
+    <string name="start_min">start_min</string>
+    <string name="end_hour">end_hour</string>
+    <string name="end_min">end_min</string>
+    <string name="notification_interval">notification_interval</string>
+    <string name="quantity">quantity</string>
+    <string name="glass_size">glass_size</string>
+    <string name="total_consumption">total_consumption</string>
+
+
+    <string-array name="notification_interval_array">
+        <item>1</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>60</item>
+    </string-array>
+
+    <string-array name="glass_size_array">
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+    </string-array>
+
+    <string-array name="notification_array">
+        <item>@string/normal_notification</item>
+        <item>@string/silent_notification</item>
+        <item>@string/no_notification</item>
+    </string-array>
+
+    <string-array name="notification_name_array">
+        <item>normal</item>
+        <item>silent</item>
+        <item>no</item>
+    </string-array>
 </resources>
