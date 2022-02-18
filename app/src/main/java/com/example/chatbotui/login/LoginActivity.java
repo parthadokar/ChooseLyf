@@ -1,5 +1,6 @@
 package com.example.chatbotui.login;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -88,7 +93,8 @@ public class LoginActivity extends AppCompatActivity {
         }
         signIn.setOnClickListener(v -> {
             Intent sign = signInClient.getSignInIntent();
-            startActivityForResult(sign, REQUEST_CODE);
+            signInForResult.launch(sign);
+            //startActivityForResult(sign, REQUEST_CODE);
         });
 
         forgotpassword.setOnClickListener(new View.OnClickListener() {
@@ -157,7 +163,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -188,7 +194,40 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
+    ActivityResultLauncher<Intent> signInForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode() == Activity.RESULT_OK){
+                Task<GoogleSignInAccount> signInTask = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+
+                try {
+                    GoogleSignInAccount signInAcc = signInTask.getResult(ApiException.class);
+
+                    AuthCredential authCredential = GoogleAuthProvider.getCredential(signInAcc.getIdToken(), null);
+
+                    fAuth.signInWithCredential(authCredential).addOnCompleteListener(task -> {
+                        Toast.makeText(getApplicationContext(), "Your Google Account is connected", Toast.LENGTH_SHORT).show();
+                        userID = fAuth.getCurrentUser().getUid();
+                        DocumentReference documentReference = fStore.collection("users").document(userID);
+                        Map<String, Object> user = new HashMap<>();
+                        user.put("name", fAuth.getCurrentUser().getDisplayName());
+                        user.put("email", fAuth.getCurrentUser().getEmail());
+                        user.put("mobile", fAuth.getCurrentUser().getPhoneNumber());
+                        documentReference.set(user).addOnSuccessListener(unused -> Log.d(TAG, "onSuccess: user profile is created for" + userID));
+                        Toast.makeText(getApplicationContext(), "Your Google Account is connected", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(LoginActivity.this, ProfileActivity.class);
+                        i.putExtra("key", isNewUser);
+                        startActivity(i);
+                    }).addOnFailureListener( e -> { });
+
+
+                } catch (ApiException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    });
 
     public void onRegisterClick(View View) {
         startActivity(new Intent(this, RegisterActivity.class));
