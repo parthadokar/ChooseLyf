@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Health Care"
+        android:text="HealthBuddy"
         android:layout_marginTop="30dp"
         android:textStyle="italic"
         android:fontFamily="@font/raleway"
